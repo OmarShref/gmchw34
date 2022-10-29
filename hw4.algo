@@ -1,0 +1,23 @@
+PROCEDURE swap(VAR xp, VAR yp : INTEGER)
+VAR
+   tmp : INTEGER;
+BEGIN
+  tmp := xp;
+  xp := yp;
+  yp := tmp;
+END
+/* *** insertion sort *** */
+PROCEDURE insertion_sort(VAR tab : ARRAY_OF INTEGER)
+VAR
+   i,j,n : INTEGER;
+BEGIN
+   n := tab.length;
+   // one by one move boundary of sub-array
+   FOR i FROM 0 TO n-2 STEP 1  DO
+       j := i;
+           WHILE (tab[j]<tab[j-1]) DO
+               swap(tab[j],tab[j-1])
+               j := j-1;
+           END_WHILE
+   END_FOR
+END

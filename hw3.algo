@@ -1,0 +1,23 @@
+function dotProduct(v1, v2) : INTEGER 
+ var product : INTEGER := 0;
+  FOR i from 0 to v1.length-1 step 1
+    product := product v1[i] * v2[i];
+  END_FOR
+  RETURN product;
+END
+
+PROCEDURE findOrthogonals(pairsOfVectors) 
+VAR
+ dotProductofeachPair,i :INTEGER;
+  FOR i from 0 to pairsOfVectors.length-1 step 1 {
+    dotProductofeachPair := dotProduct(
+      pairsOfVectors[i][0],
+      pairsOfVectors[i][1]
+    );
+    IF (dotProductofeachPair = 0) 
+      console.log(
+        `the pair of vectors ${pairsOfVectors[i][0]} & ${pairsOfVectors[i][1]} are ortogonal`
+      );
+    END_IF
+  }
+END
